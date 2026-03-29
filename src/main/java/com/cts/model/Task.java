@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
-@Table
+@Table(name="task")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -16,16 +16,16 @@ import java.time.LocalDate;
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int taskId;
-    private int workOrderId;
+    private Long taskId;
+    private Long workOrderId;
     private String description;
-    private String assignedTo;
+    private Long assignedTo;
     private LocalDate dueDate;
     @NotNull
     @Column(nullable = false)
     @Builder.Default
     private String status = "Open";
-    public Task(int workOrderId,String description, String assignedTo, LocalDate dueDate, String status){
+    public Task(Long workOrderId,String description, Long assignedTo, LocalDate dueDate, String status){
         super();
         this.workOrderId = workOrderId;
         this.description = description;

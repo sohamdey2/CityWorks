@@ -5,6 +5,6 @@ import com.cts.model.Task;
 
 public interface TaskService {
     Task createTask(Task t);
-    Task findTaskById(int id) throws TaskNotFoundException;
-    Task updateTaskById(int id, Task t) throws TaskNotFoundException;
+    Task findTaskById(Long id);
+    Task updateTaskById(Long id, Task t);
 }

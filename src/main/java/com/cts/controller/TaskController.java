@@ -20,26 +20,13 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public Task findTaskById(@PathVariable("id") int id){
-        try{
-            Task t = taskService.findTaskById(id);
-            return t;
-        }
-        catch (TaskNotFoundException tnfe){
-            System.out.println(tnfe);
-            return null;
-        }
+    public Task findTaskById(@PathVariable("id") Long id){
+        Task t = taskService.findTaskById(id);
+        return t;
     }
 
     @PutMapping("/{id}")
-    public Task updateMobilebyId(@PathVariable("id") int id, @RequestBody Task t){
-        try {
-            Task tk = taskService.updateTaskById(id, t);
-            return tk;
-        }
-        catch (TaskNotFoundException tnfe){
-            System.out.println(tnfe);
-            return null;
-        }
+    public Task updateMobileById(@PathVariable("id") Long id, @RequestBody Task t){
+        return taskService.updateTaskById(id, t);
     }
 }

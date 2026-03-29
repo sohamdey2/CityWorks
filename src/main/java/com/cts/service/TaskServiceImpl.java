@@ -16,12 +16,12 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public Task findTaskById(int id) throws TaskNotFoundException {
+    public Task findTaskById(Long id){
         return taskDAO.findById(id).orElseThrow(() -> new TaskNotFoundException("Task with id " + id + " not found"));
     }
 
     @Override
-    public Task updateTaskById(int id, Task newTask) throws TaskNotFoundException {
+    public Task updateTaskById(Long id, Task newTask){
         Task oldTask = findTaskById(id);
         oldTask.setWorkOrderId(newTask.getWorkOrderId());
         oldTask.setDescription(newTask.getDescription());
